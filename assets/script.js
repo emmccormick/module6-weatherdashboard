@@ -1,44 +1,43 @@
 // GIVEN a weather dashboard with form inputs WHEN I search for a city THEN I am presented with current and future conditions for that city and that city is added to the search history
-var cityName = document.querySelector('.form-input').value;
-var submitBtn = document.querySelector('.btn');
+function weatherFunction() {
+  // var cityName = document.querySelector('#city-name').value; 
+  // console.log(cityName);
 
-submitBtn.addEventListener('click', function() {
-  console.log(cityName)
-})
+  var cityTitle = document.getElementById("cityname");
+  var currentTemp = document.getElementById("temperature");
+  var currentHumidity = document.getElementById("humidity");
+  var currentWind = document.getElementById("wind-speed");
 
-function getCurrentWeather() {
-  
-  var webUrl = 'api.openweathermap.org/data/2.5/weather?q=' + cityName + '&appid={API key'
-  
-  fetch(webUrl)
-  .then(function(response) {
-    response.json().then(function(data) {
-      console.log(data);
-    });
-  });
+  var apiKey = 'a977276642cf97a49b2a87a992aec26d';
+  var cityName = "Milwaukee"
 
-}
 
-function getForecastedWeather() {
-  
-  var webUrl = 'api.openweathermap.org/data/2.5/weather?q=' + cityName + '&appid={API key'
+
+  var webUrl = 'https://api.openweathermap.org/data/2.5/weather?q=' + cityName + '&appid=' + apiKey;
   
   fetch(webUrl)
   .then(function(response) {
-    response.json().then(function(data) {
+    return response.json();
+  })
+    .then(function(data) {
       console.log(data);
+
+      cityTitle.innerHTML = data.name 
+      currentTemp.innerHTML = "Temperature: " + data.main.temp;
+      currentHumidity.innerHTML = "Humidity: " + data.main.humidity;
+      currentWind.innerHTML= "Wind Speed " + data.wind.speed +" MPH";
+
+
     });
-  });
+
 
 }
 
-
-// things below are different endpoints!
-// WHEN I view current weather conditions for that city THEN I am presented with the city name, the date, an icon representation of weather conditions, the temperature, the humidity, the wind speed, and the UV index
-// WHEN I view the UV index THEN I am presented with a color that indicates whether the conditions are favorable, moderate, or severe
-// WHEN I view future weather conditions for that city THEN I am presented with a 5-day forecast that displays the date, an icon representation of weather conditions, the temperature, and the humidity
-// WHEN I click on a city in the search history THEN I am again presented with current and future conditions for that city
+weatherFunction();
 
 
-// input area w/ button, grab the value & perform getWeather on the input. then another function to "drawWeather" - dom manipulations, be given data & manipulate DOM
+
+  
+
+
 

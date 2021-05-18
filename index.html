@@ -19,7 +19,7 @@
             <h3 class="card-header text-uppercase">Search By City</h3>
             <form id="user-form" class="card-body">
               <input name="city-name" id="city-name" type="text" autofocus="true" class="form-input" />
-              <button type="submit" class="btn">Submit</button>
+              <button type="submit" class="btn" id="submit-btn">Submit</button>
             </form>
           </div>
         </div>
@@ -29,6 +29,21 @@
           <div id="weather-container" class="list-group">
           </div>
         </div>
+
+      
+          <div class="row mr-0">
+            <div class="col-lg-11 card m-3" id="today-weather">
+                <div class="card-body">
+                    <h4 id="cityname"></h4>
+                  
+                    <p id="temperature"></p>
+                    <p id="humidity"></p>
+                    <p id="wind-speed"></p>
+                    <p id="UV-index"></p>
+                </div>
+            </div>
+        </div>
+      
     </main>
 
     <script src="assets/script.js"></script>
