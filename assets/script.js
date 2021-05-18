@@ -1,6 +1,5 @@
-// GIVEN a weather dashboard with form inputs WHEN I search for a city THEN I am presented with current and future conditions for that city and that city is added to the search history
 function weatherFunction() {
-  // var cityName = document.querySelector('#city-name').value; 
+  //var searchTerm = document.querySelector('#searchTerm').value; 
   // console.log(cityName);
 
   var cityTitle = document.getElementById("cityname");
